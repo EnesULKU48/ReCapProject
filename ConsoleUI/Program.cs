@@ -9,8 +9,15 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Test();
-           // TestDto();
+            //Test();
+            // TestDto();
+            TestRental();
+
+        }
+
+        private static void TestRental()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
         }
 
