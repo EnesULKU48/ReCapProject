@@ -14,16 +14,10 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
-        private EfRentalDal efRentalDal;
 
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
-        }
-
-        public CarManager(EfRentalDal efRentalDal)
-        {
-            this.efRentalDal = efRentalDal;
         }
 
         public IResult Add(Car car)
