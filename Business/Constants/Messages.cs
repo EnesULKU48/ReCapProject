@@ -49,6 +49,6 @@ namespace Business.Constants
         public static string ColorNameInvaild = "Geçersiz renk.";
         public static string MaintenanceTime = "Bakım çalışması yapılmaktadır. Teşekkürler.";
         public static string RentalInvalid = "Seçili araç kiralanmıştır.";
-
+        public static string CarImageLimitExceeded = "5'ten fazla resim eklenemez";
     }
 }
