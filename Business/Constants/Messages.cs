@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,12 @@ namespace Business.Constants
 {
     public static class Messages
     {
+        //Auth
+        public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string SuccessfulLogin = "Başarılı giriş";
+        public static string AccessTokenCreated = "Token oluşturuldu";
+        public static string UserRegistered = "kayıt oldu";
+        public static string UserAlreadyExists = "kullanıcı mevcut";
         //Car
         public static string CarAdded = "Araç başarılı bir şekilde eklendi.";
         public static string CarDeleted = "Araç başarılı bir şekilde silindi.";
@@ -50,5 +57,8 @@ namespace Business.Constants
         public static string MaintenanceTime = "Bakım çalışması yapılmaktadır. Teşekkürler.";
         public static string RentalInvalid = "Seçili araç kiralanmıştır.";
         public static string CarImageLimitExceeded = "5'ten fazla resim eklenemez";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Parola hatası";
+
     }
 }
