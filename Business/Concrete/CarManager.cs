@@ -9,6 +9,7 @@ using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -68,14 +69,16 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(b=> b.BrandId==id));
+            var data = _carDal.GetCarDetails().Where(b => b.BrandId == id).ToList();
+            return new SuccessDataResult<List<CarDetailDto>>(data);
         }
 
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c=> c.ColorId==id));
+            var data = _carDal.GetCarDetails().Where(c => c.ColorId == id).ToList();
+            return new SuccessDataResult<List<CarDetailDto>>(data);
         }
 
         public IDataResult<List<Car>> GetCarsByModelYear(int year)
@@ -87,5 +90,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
+
+
     }
 }

@@ -12,7 +12,7 @@ using System.Text;
 namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, RentACarContext>, ICarDal
-    {
+    {                // Expression<Func<Car, bool>> filter = null
         public List<CarDetailDto> GetCarDetails()
         {
             using (RentACarContext context = new RentACarContext())
@@ -22,19 +22,22 @@ namespace DataAccess.Concrete.EntityFramework
                              on c.BrandId equals b.BrandId
                              join col in context.Colors
                              on c.ColorId equals col.ColorId
-                             orderby c.ModelYear
                              select new CarDetailDto
                              {
                                  CarId = c.CarId,
+                                 BrandId = b.BrandId,
+                                 ColorId = col.ColorId,
                                  CarName = c.CarName,
-                                 DailyPrice = c.DailyPrice,
                                  BrandName = b.BrandName,
-                                 ColorName = col.ColorName
-
+                                 ColorName = col.ColorName,
+                                 DailyPrice = c.DailyPrice,
+                                 ModelYear = c.ModelYear
                              };
                 return result.ToList();
+
 
             }
         }
     }
 }
+// filter == null ? context.Cars:context.Cars.Where(filter)
