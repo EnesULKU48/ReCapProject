@@ -59,6 +59,6 @@ namespace Business.Constants
         public static string CarImageLimitExceeded = "5'ten fazla resim eklenemez";
         public static string UserNotFound = "Kullanıcı bulunamadı";
         public static string PasswordError = "Parola hatası";
-
+        public static string CarImagesAdded = "Araba resmi eklendi";
     }
 }
